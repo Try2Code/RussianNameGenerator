@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+require "./lib/RussianNameGenerator.rb"
+
+if 0 == ARGV.size then
+  ethnic = 'ALL'
+else
+  ethnic = ARGV[0]
+  unless RussianNameGenerator::VALID_ETHNICS.include?(ethnic) then
+    warn "Could not find ethnic:#{ethnic}!"
+    exit(1)
+  end
+end
+
+ng = RussianNameGenerator.new
+ng.print(12,ethnic)
+
+#vim:ft=rb
